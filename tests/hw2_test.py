@@ -36,10 +36,12 @@ def test_duplicate_remover(capsys):
 
 def test_even_square_sum(monkeypatch, capsys):
     from even_square_sum import even_square_sum
-
-    even_square_sum()
+    even_square_sum([1, 62, 3, 57, 26, 8, 101, 200, 43, 20, 11])
     captured = capsys.readouterr()
-    assert "44984" in captured.out
+    assert "44984" == captured.out.strip()
+    even_square_sum([4, 16, 19, 5, 104, 23, 99])
+    captured = capsys.readouterr()
+    assert "11088" == captured.out.strip()
 
 def test_grocery_calculator(monkeypatch, capsys):
     from grocery_calculator import grocery_calculator
