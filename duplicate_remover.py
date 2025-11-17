@@ -5,7 +5,7 @@
 # For the example below, the output should be
 # "[1, 4, 3, 2, 5, 7, 9]"
 # 
-# Note that I have put the duplicates_list key into the function
+# Note that I have put duplicates_list into the function
 # as an argument. We will discuss this syntax later. For now,
 # it is a way for me to test your code using different lists.
 # If you want to test your code with different list inputs,
