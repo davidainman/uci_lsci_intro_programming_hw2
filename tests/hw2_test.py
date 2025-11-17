@@ -27,9 +27,12 @@ def test_char_counter(monkeypatch, capsys):
 
 def test_duplicate_remover(capsys):
     from duplicate_remover import duplicate_remover
-    duplicate_remover()
+    duplicate_remover([5, 6, 0, 1, 6, 5, 0, 1, 9, 4])
     captured = capsys.readouterr()
-    assert "[1, 4, 3, 2, 5, 7, 9]" in captured.out
+    assert "[5, 6, 0, 1, 9, 4]" in captured.out
+    duplicate_remover([3, 2, 3, 3, 2, 1, 1, 4, 2, 3])
+    captured = capsys.readouterr()
+    assert "[3, 2, 1, 4]" in captured.out
 
 def test_even_square_sum(monkeypatch, capsys):
     from even_square_sum import even_square_sum
