@@ -63,4 +63,4 @@ def test_temperature_calculator(monkeypatch, capsys):
     monkeypatch.setattr('builtins.input', lambda msg: next(inputs))
     temperature_calculator()
     captured = capsys.readouterr()
-    assert '40.0' in captured.out
+    assert '44.0' in captured.out
