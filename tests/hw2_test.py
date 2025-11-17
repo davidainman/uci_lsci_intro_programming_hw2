@@ -45,13 +45,13 @@ def test_even_square_sum(monkeypatch, capsys):
 
 def test_grocery_calculator(monkeypatch, capsys):
     from grocery_calculator import grocery_calculator
-    inputs = iter(['bread', 'milk', 'eggs', 'butter', 'eggs', ''])
-    monkeypatch.setattr('builtins.input', lambda msg: next(inputs))
+    inputs = ['bread', 'milk', 'eggs', 'butter', 'eggs', '\n']
+    monkeypatch.setattr('sys.stdin', StringIO('\n'.join(inputs)))
     grocery_calculator()
     captured = capsys.readouterr()
     assert '$21' in captured.out
 
-    monkeypatch.setattr('builtins.input', lambda msg: '')
+    monkeypatch.setattr('sys.stdin', StringIO('\n'))
     grocery_calculator()
     captured = capsys.readouterr()
     assert '$0' in captured.out
@@ -60,7 +60,7 @@ def test_temperature_calculator(monkeypatch, capsys):
     from temperature_calculator import temperature_calculator
 
     inputs = iter(['40', '28', '64', 'quit'])
-    monkeypatch.setattr('builtins.input', lambda msg: next(inputs))
+    monkeypatch.setattr('sys.stdin', StringIO('\n'.join(inputs)))
     temperature_calculator()
     captured = capsys.readouterr()
     assert '44.0' in captured.out
