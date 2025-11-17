@@ -59,7 +59,7 @@ def test_grocery_calculator(monkeypatch, capsys):
 def test_temperature_calculator(monkeypatch, capsys):
     from temperature_calculator import temperature_calculator
 
-    inputs = iter(['40', '28', '64', 'quit'])
+    inputs = ['40', '28', '64', 'quit']
     monkeypatch.setattr('sys.stdin', StringIO('\n'.join(inputs)))
     temperature_calculator()
     captured = capsys.readouterr()
